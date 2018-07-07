@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NgxPaginationModule} from 'ngx-pagination';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
@@ -20,11 +21,8 @@ import { ToastrModule } from 'ngx-toastr';
     EmployeeListComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    HttpModule,
-    ToastrModule.forRoot()
+    BrowserModule, BrowserAnimationsModule, FormsModule, HttpModule,
+    NgxPaginationModule, ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

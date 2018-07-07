@@ -12,17 +12,22 @@ import { Employee } from './employee.model';
 export class EmployeeService {
   selectedEmployee : Employee;
   employeeList: Employee[];
+  total_employees: number;
+  page_no: number;
 
   constructor(private http: Http) { }
 
-  getEmployees(){
-    console.log("calling api");
-    return this.http.get("http://localhost:3000/employees/1")
+  getEmployees(page_no: number){
+    console.log("calling api in getEmployees");
+    console.log("pageNo"+page_no);
+    return this.http.get("http://localhost:3000/employees/"+this.page_no)
     .map((data: Response) => {
-      return data.json() as Employee[];
-    }).toPromise().then(x => {
-      this.employeeList = x;
-      console.log(this.employeeList);
+      return data.json() ;
+    }).toPromise().then(x => {  
+      console.log(x);
+      this.total_employees = x.total_employees;
+      this.employeeList = x.employees_data;
+      console.log(this.total_employees);
     })
   }
 

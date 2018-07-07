@@ -3,7 +3,7 @@
     <td>First Name</td>
     <td>Last Name</td>
   </tr>
-  <tr *ngFor="let employee of employeeService.employeeList">
+  <tr *ngFor="let employee of employeeService.employeeList | paginate: { itemsPerPage: 10, currentPage: employeeService.page_no, totalItems: employeeService.total_employees }">
     <td>{{employee.first_name}}</td>
     <td>{{employee.last_name}}</td>
     <td>
@@ -15,4 +15,6 @@
       </a>
     </td>
   </tr>
+  
+  <pagination-controls class="my-pagination" (pageChange)="onPageChange($event)"></pagination-controls>
 </table>

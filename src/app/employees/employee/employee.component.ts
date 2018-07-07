@@ -39,7 +39,7 @@ export class EmployeeComponent implements OnInit {
         .subscribe((data) => {
           console.log(data);
           this.resetForm(form);
-          this.employeeService.getEmployees();          
+          this.employeeService.getEmployees(this.employeeService.page_no);          
           this.toastr.success("New record added successfully", "Employee Register");
         });
     }
@@ -50,7 +50,7 @@ export class EmployeeComponent implements OnInit {
       this.employeeService.putEmployee(form.value.emp_no,form.value)
         .subscribe((data) => {
           this.resetForm(form);
-          this.employeeService.getEmployees();
+          this.employeeService.getEmployees(this.employeeService.page_no);
           this.toastr.success("Record updated successfully", "Employee updated");
         });  
     }
