@@ -1,3 +1,6 @@
+Prerequisite 
+clone this project https://github.com/rajan-modi/employee_api.git and start the node server using nodemon.
+
 # EmployeeCRUD
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.1.
